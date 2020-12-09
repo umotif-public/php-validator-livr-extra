@@ -11,56 +11,60 @@ final class ListLengthTest extends TestCase
 {
     private const TEST_DATA_KEY = 'my_rule_list';
     private const FORMAT_ERROR = 'FORMAT_ERROR';
-    private const REQUIRED = 'REQUIRED';
 
     /**
-     * @dataProvider dataProvider
+     * @dataProvider providerForValidData
      * @param $data
      * @param array|null $ruleLength
-     * @param string|null $errorMessage
      */
-    public function testItWorks($data, ?array $ruleLength, ?string $errorMessage = null): void
+    public function testValidData($data, ?array $ruleLength): void
     {
-        $rules = [
-            self::TEST_DATA_KEY => [
-                'required', [
-                    'list_length' => $ruleLength
-                ]
-            ],
-        ];
-
+        $validator = self::prepareValidator($ruleLength, $data);
         $input = [self::TEST_DATA_KEY => $data];
-
-        $validator = new LIVR($rules, true);
         $cleanData = $validator->validate($input);
 
-        if ($errorMessage) {
-            $this->assertEquals($errorMessage, $validator->getErrors()[self::TEST_DATA_KEY]);
-        } else {
-            $this->assertEquals($input, $cleanData);
-        }
+        $this->assertEquals($input, $cleanData);
     }
 
-    public function dataProvider(): array
+    /**
+     * @dataProvider providerForInvalidData
+     * @param $data
+     * @param array|null $ruleLength
+     * @param string $errorMessage
+     */
+    public function testInvalidData($data, ?array $ruleLength, string $errorMessage): void
+    {
+        $validator = self::prepareValidator($ruleLength, $data);
+        $input = [self::TEST_DATA_KEY => $data];
+        $validator->validate($input);
+
+        $this->assertEquals($errorMessage, $validator->getErrors()[self::TEST_DATA_KEY]);
+    }
+
+    public function providerForValidData(): array
     {
         return [
             [
                 //valid
                 'data' => [1, 2 ,3 ,4],
                 'rule_length' => [4],
-                'error_message' => null,
             ],
             [
-                //no data
+                //no data present
                 'data' => null,
                 'rule_length' => [1],
-                'error_message' => self::REQUIRED,
             ],
+        ];
+    }
+
+    public function providerForInvalidData(): array
+    {
+        return [
             [
                 //no data and no rules
                 'data' => null,
                 'rule_length' => null,
-                'error_message' => self::REQUIRED,
+                'error_message' => self::FORMAT_ERROR,
             ],
             [
                 //data is not a valid list
@@ -105,5 +109,16 @@ final class ListLengthTest extends TestCase
                 'error_message' => self::FORMAT_ERROR,
             ]
         ];
+    }
+
+    private static function prepareValidator(?array $ruleLength, $data): LIVR
+    {
+        $rules = [
+            self::TEST_DATA_KEY => [
+                'list_length' => $ruleLength
+            ],
+        ];
+
+        return new LIVR($rules, true);
     }
 }

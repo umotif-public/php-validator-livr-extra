@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a59cd87a6e404398e9fb5994d1ef73ef",
+    "content-hash": "a8fa251cf4e6a355c80a60820fffad70",
     "packages": [
         {
             "name": "validator/livr",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/umotif-public/php-validator-livr.git",
@@ -27,7 +27,6 @@
                 "phpunit/phpunit": "*",
                 "squizlabs/php_codesniffer": "2.*"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -2163,9 +2162,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "validator/livr": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

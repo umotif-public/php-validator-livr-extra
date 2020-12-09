@@ -1,5 +1,5 @@
 {
-    "name": "umotif/livr-extra",
+    "name": "umotif/php-livr-extra",
     "description": "Lightweight validator supporting Language Independent Validation Rules Specification (LIVR)",
     "type": "library",
     "keywords": ["validator", "livr"],
@@ -7,26 +7,10 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Viktor Turskyi",
-            "email": "koorchik@gmail.com",
-            "homepage": "http://koorchik.blogspot.com/",
+            "name": "uMotif",
+            "email": "engineering@umotif.com",
+            "homepage": "https://www.umotif.com/",
             "role": "Author"
-        },
-        {
-            "name": "Danil Greben",
-            "email": "greben.danil@gmail.com",
-            "homepage": "http://wanderer.in.ua",
-            "role": "Developer"
-        },
-        {
-            "name": "Anton Morozov",
-            "email": "anton@webbylab.com",
-            "homepage": "https://webbylab.com/",
-            "role": "Developer"
-        },
-        {
-            "name": "Konstantin Dvornik",
-            "role": "Developer"
         }
     ],
     "autoload": {
@@ -36,7 +20,7 @@
     },
     "require": {
         "php": "^7.4",
-        "validator/livr": "dev-master"
+        "validator/livr": "^1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*"

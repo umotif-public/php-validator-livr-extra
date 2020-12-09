@@ -6,7 +6,7 @@ namespace uMotif\Validator\LIVR\Rules;
 
 final class ListLength
 {
-    const FORMAT_ERROR = 'FORMAT_ERROR';
+    private const FORMAT_ERROR = 'FORMAT_ERROR';
 
     public static function listLength($param1, $param2)
     {
@@ -19,7 +19,7 @@ final class ListLength
             (!isset($param2) || $param2 === '' || !is_string($param2) ) ? $maxLen = $param1 : $maxLen = $param2;
 
             if (!isset($values) || $values === '') {
-                return null;
+                return;
             }
 
             if (!is_array($values)) {
@@ -34,7 +34,7 @@ final class ListLength
                 return 'TOO_MANY_ITEMS';
             }
 
-            return null;
+            return;
         };
     }
 }

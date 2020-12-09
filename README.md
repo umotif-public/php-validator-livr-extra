@@ -4,13 +4,9 @@ Extension wrapper for [umotif-public/php-validator-livr](https://github.com/umot
 This library contains additional LIVR rules not found in the original uMotif package.
 
 ## Installation
-Add the following to your `composer.json`:
-```json
-    {
-        "require": {
-            "umotif/livr-extra": "dev-master"
-        }
-    }
+Add the package via composer:
+```bash
+composer require umotif/php-livr-extra
 ```
 
 ## Usage
