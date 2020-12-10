@@ -7,6 +7,8 @@ namespace uMotif\Validator\LIVR\Rules;
 final class ListLength
 {
     private const FORMAT_ERROR = 'FORMAT_ERROR';
+    private const TOO_FEW_ITEMS = 'TOO_FEW_ITEMS';
+    private const TOO_MANY_ITEMS = 'TOO_MANY_ITEMS';
 
     public static function listLength($param1, $param2)
     {
@@ -23,15 +25,15 @@ final class ListLength
             }
 
             if (!is_array($values)) {
-                return ListLength::FORMAT_ERROR;
+                return self::FORMAT_ERROR;
             }
 
             $count = count($values);
             if ($count < $minLen) {
-                return 'TOO_FEW_ITEMS';
+                return self::TOO_FEW_ITEMS;
             }
             if ($count > $maxLen) {
-                return 'TOO_MANY_ITEMS';
+                return self::TOO_MANY_ITEMS;
             }
 
             return;
