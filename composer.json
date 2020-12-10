@@ -1,0 +1,34 @@
+{
+    "name": "umotif/php-livr-extra",
+    "description": "Lightweight validator supporting Language Independent Validation Rules Specification (LIVR)",
+    "type": "library",
+    "keywords": ["validator", "livr"],
+    "homepage": "https://github.com/umotif-public/php-validator-livr-extra",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "uMotif",
+            "email": "engineering@umotif.com",
+            "homepage": "https://www.umotif.com/",
+            "role": "Author"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "uMotif\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "validator/livr": "^1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/umotif-public/php-validator-livr"
+        }
+    ]
+}
